@@ -271,7 +271,7 @@ module "codedeploy" {
   cd_compute_platform = "Server"
   dg_service_role     = module.codedeploy_role.arn
   dg_asg_name         = [module.asg.name]
-  dg_lb_tg_name       = module.alb.tg_id
+  dg_lb_tg_name       = module.alb.tg_name
   sns_email           = var.sns_email
 
   tags = local.tags
