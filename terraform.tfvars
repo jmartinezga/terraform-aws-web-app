@@ -11,7 +11,6 @@ application = "web-app"
 vpc_name       = "main"
 vpc_cidr_block = "10.1.0.0/16"
 
-
 ###############################################################################
 # RDS Module variables
 ###############################################################################
@@ -19,6 +18,18 @@ rds_engine         = "postgres"
 rds_engine_version = "9.6.23"
 rds_instance_class = "db.t2.micro"
 rds_user           = "postgres"
+
+###############################################################################
+# ALB Module variables
+###############################################################################
+lb_health_check = {
+  path                = "/users/1"
+  healthy_threshold   = 5
+  unhealthy_threshold = 2
+  timeout             = 5
+  interval            = 30
+  matcher             = "200"
+}
 
 ###############################################################################
 # EC2_SG Module variables
