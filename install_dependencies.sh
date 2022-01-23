@@ -2,10 +2,15 @@
 
 mkdir tmp && cd tmp
 
-#https://github.com/hashicorp/terraform
-echo -e "\nInstall terraform"
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+
+#https://github.com/hashicorp/packer
+echo -e "\nInstall packer"
+sudo apt install packer && sudo apt upgrade packer && sudo appt clean && sudo apt autoclean && sudo apt autoremove
+
+#https://github.com/hashicorp/terraform
+echo -e "\nInstall terraform"
 sudo apt install terraform && sudo apt upgrade terraform && sudo appt clean && sudo apt autoclean && sudo apt autoremove
 
 #https://github.com/gruntwork-io/terragrunt
