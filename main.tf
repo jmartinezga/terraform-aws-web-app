@@ -186,7 +186,7 @@ module "alb" {
   lb_type                = "application"
   lb_internal            = false
   lb_security_group_list = [module.alb_sg.id]
-  lb_subnets_list        = module.vpc.private_subnets_id
+  lb_subnets_list        = module.vpc.public_subnets_id
   lb_vpc_id              = module.vpc.id
 
   lb_health_check = var.lb_health_check
@@ -247,7 +247,7 @@ module "asg" {
   ami_name               = var.ami_name
   ec2_key_pair           = var.ec2_key_pair
   asg_subnets_list       = module.vpc.private_subnets_id
-  lc_security_group_list = [module.ec2_sg.id]
+  lt_security_group_list = [module.ec2_sg.id]
   lb_tg_arn              = module.alb.tg_arn
 
   depends_on = [

@@ -32,7 +32,6 @@ variable "ec2_key_pair" {
 variable "rds_engine" {
   description = "(Required) RDS Engine"
   type        = string
-  nullable    = false
 
   validation {
     condition     = length(var.rds_engine) > 0
@@ -43,7 +42,6 @@ variable "rds_engine" {
 variable "rds_engine_version" {
   description = "(Required) RDS Engine version"
   type        = string
-  nullable    = false
 
   validation {
     condition     = length(var.rds_engine_version) > 0
@@ -54,7 +52,6 @@ variable "rds_engine_version" {
 variable "rds_instance_class" {
   description = "(Required) RDS Instance class"
   type        = string
-  nullable    = false
 
   validation {
     condition     = length(var.rds_instance_class) > 0
@@ -65,7 +62,6 @@ variable "rds_instance_class" {
 variable "rds_user" {
   description = "(Required) RDS user name"
   type        = string
-  nullable    = false
 
   validation {
     condition     = length(var.rds_user) > 0
@@ -133,7 +129,6 @@ variable "ami_name" {
 variable "sns_email" {
   description = "(Required) SNS Topic Subscription email."
   type        = string
-  nullable    = false
 
   validation {
     condition     = can(regex("[a-zA-Z0-9-_.+]*@[a-zA-Z0-9.]*[.]{1}[a-z]{3}", var.sns_email))
